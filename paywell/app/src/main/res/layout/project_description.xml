@@ -1,36 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginBottom="20sp"
+        android:id="@+id/descriptionLayout"
+        android:padding="5sp">
+
+        <ImageView
+            android:id="@+id/projectDescriptionImage"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            />
 
     <TextView
         android:id="@+id/projectName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/projectDescriptionImage"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/projectOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/projectName"/>
+        android:layout_below="@id/projectName"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/shortProjectDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/projectOwner"/>
+        android:layout_below="@id/projectOwner"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/fullProjectDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/shortProjectDescription"/>
+        android:layout_below="@id/shortProjectDescription"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/fullProjectDescription"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:id="@+id/pay1"
+                android:text="10000"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:id="@+id/pay2"
+                android:text="50000"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:id="@+id/pay3"
+                android:text="100000"/>
+        </LinearLayout>
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

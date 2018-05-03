@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = llm
 
         recyclerView.adapter = RecyclerAdapter(generateRecords())
-//        val projectCard = findViewById<View>(R.id.projectCard)
-//        projectCard.setOnClickListener { v -> v.context.startActivity(Intent(this, ProjectDescriptionActivity::class.java)) }
     }
 
     private fun generateRecords(): MutableList<ProjectInfo> {
