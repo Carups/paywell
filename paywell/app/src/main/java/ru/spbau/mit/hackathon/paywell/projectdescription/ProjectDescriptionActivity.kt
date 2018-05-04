@@ -22,14 +22,12 @@ class ProjectDescriptionActivity: AppCompatActivity() {
 
         val projectName: TextView = findViewById(R.id.projectName)
         val projectOwner: TextView = findViewById(R.id.projectOwner)
-        val projectShortDescription: TextView = findViewById(R.id.shortProjectDescription)
         val projectFullDescription: TextView = findViewById(R.id.fullProjectDescription)
 
         val paramsMap = JSONObject(intent.getStringExtra("project_info"))
 
         projectName.text = paramsMap.getString("name")
         projectOwner.text = paramsMap.getString("owner")
-        projectShortDescription.text = paramsMap.getString("short_desc")
         projectFullDescription.text = paramsMap.getString("full_desc")
 
         val donate1Button: Button = findViewById(R.id.pay1)
@@ -40,7 +38,14 @@ class ProjectDescriptionActivity: AppCompatActivity() {
         manualPaymentText.imeOptions = EditorInfo.IME_ACTION_GO
         manualPaymentText.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_GO) {
-                Snackbar.make(findViewById(R.id.descriptionLayout), "Paid ${manualPaymentText.text}00", 1000).show()
+                val intent = PaymentActivity.getBuilder(this)
+                        .setPaymentParams(P2pTransferParams.Builder("410015482994105")
+                                .setAmount(BigDecimal("${manualPaymentText.text}"))
+                                .create())
+                        .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
+                        .setHost("https://money.yandex.ru")
+                        .build();
+                    startActivityForResult(intent, 1)
                 true
             }
             false
@@ -49,7 +54,7 @@ class ProjectDescriptionActivity: AppCompatActivity() {
         donate1Button.setOnClickListener {
                 val intent = PaymentActivity.getBuilder(this)
                 .setPaymentParams(P2pTransferParams.Builder("410015482994105")
-                        .setAmount(BigDecimal("10.0"))
+                        .setAmount(BigDecimal("${donate1Button.text}"))
                         .create())
                 .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
                 .setHost("https://money.yandex.ru")
@@ -58,7 +63,7 @@ class ProjectDescriptionActivity: AppCompatActivity() {
         donate2Button.setOnClickListener {
             val intent = PaymentActivity.getBuilder(this)
                     .setPaymentParams(P2pTransferParams.Builder("410015482994105")
-                            .setAmount(BigDecimal("50.0"))
+                            .setAmount(BigDecimal("${donate2Button.text}"))
                             .create())
                     .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
                     .setHost("https://money.yandex.ru")
@@ -67,7 +72,7 @@ class ProjectDescriptionActivity: AppCompatActivity() {
         }
         donate3Button.setOnClickListener { val intent = PaymentActivity.getBuilder(this)
                 .setPaymentParams(P2pTransferParams.Builder("410015482994105")
-                        .setAmount(BigDecimal("100.0"))
+                        .setAmount(BigDecimal("${donate3Button.text}"))
                         .create())
                 .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
                 .setHost("https://money.yandex.ru")

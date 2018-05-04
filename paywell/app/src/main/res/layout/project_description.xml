@@ -22,43 +22,82 @@
             android:src="@mipmap/ic_launcher"
             />
 
+        <TextView
+            android:id="@+id/projectNameLabel"
+            android:text="Название"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/projectDescriptionImage"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"/>
+
     <TextView
         android:id="@+id/projectName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/projectDescriptionImage"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"/>
+        android:layout_below="@id/projectNameLabel"
+        android:textColor="#777777"
+        android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/projectOwnerLabel"
+            android:text="Организация"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/projectName"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"/>
 
     <TextView
         android:id="@+id/projectOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/projectName"
-        android:textColor="@android:color/black"
+        android:layout_below="@id/projectOwnerLabel"
+        android:textColor="#777777"
         android:textSize="18sp"/>
 
-    <TextView
-        android:id="@+id/shortProjectDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/projectOwner"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"/>
+    <!--<TextView-->
+        <!--android:id="@+id/shortProjectDescription"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/projectOwner"-->
+        <!--android:textColor="@android:color/black"-->
+        <!--android:textSize="16sp"/>-->
+
+        <TextView
+            android:id="@+id/fullProjectDescriptionLabel"
+            android:text="Полное описание"
+            android:layout_marginTop="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/projectOwner"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"/>
 
     <TextView
         android:id="@+id/fullProjectDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/shortProjectDescription"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"/>
+        android:layout_below="@id/fullProjectDescriptionLabel"
+        android:textColor="#777777"
+        android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/donateLabel"
+            android:text="Пожертвовать"
+            android:layout_marginTop="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fullProjectDescription"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/fullProjectDescription"
+            android:layout_below="@id/donateLabel"
             android:id="@+id/paymentLayout">
 
             <LinearLayout
@@ -76,7 +115,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:background="#0000ff"
-                    android:text="100"
+                    android:text="10"
                     android:textColor="#ffffff" />
 
                 <Button
@@ -87,7 +126,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:background="#0000ff"
-                    android:text="500"
+                    android:text="50"
                     android:textColor="#ffffff" />
 
                 <Button
@@ -98,7 +137,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:background="#0000ff"
-                    android:text="1000"
+                    android:text="100"
                     android:textColor="#ffffff" />
 
             </LinearLayout>
