@@ -1,5 +1,6 @@
 package ru.spbau.mit.hackathon.paywell.projectdescription
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -7,8 +8,11 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.yandex.money.api.methods.payment.params.P2pTransferParams
 import org.json.JSONObject
 import ru.spbau.mit.hackathon.paywell.R
+import ru.yandex.money.android.PaymentActivity
+import java.math.BigDecimal
 
 class ProjectDescriptionActivity: AppCompatActivity() {
 
@@ -42,8 +46,32 @@ class ProjectDescriptionActivity: AppCompatActivity() {
             false
         }
 
-        donate1Button.setOnClickListener { Snackbar.make(findViewById(R.id.descriptionLayout), "Paid ${donate1Button.text}00", 1000).show() }
-        donate2Button.setOnClickListener { Snackbar.make(findViewById(R.id.descriptionLayout), "Paid ${donate2Button.text}00", 1000).show() }
-        donate3Button.setOnClickListener { Snackbar.make(findViewById(R.id.descriptionLayout), "Paid ${donate3Button.text}00", 1000).show() }
+        donate1Button.setOnClickListener {
+                val intent = PaymentActivity.getBuilder(this)
+                .setPaymentParams(P2pTransferParams.Builder("410015482994105")
+                        .setAmount(BigDecimal("10.0"))
+                        .create())
+                .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
+                .setHost("https://money.yandex.ru")
+                .build();
+            startActivityForResult(intent, 1) }
+        donate2Button.setOnClickListener {
+            val intent = PaymentActivity.getBuilder(this)
+                    .setPaymentParams(P2pTransferParams.Builder("410015482994105")
+                            .setAmount(BigDecimal("50.0"))
+                            .create())
+                    .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
+                    .setHost("https://money.yandex.ru")
+                    .build();
+            startActivityForResult(intent, 1)
+        }
+        donate3Button.setOnClickListener { val intent = PaymentActivity.getBuilder(this)
+                .setPaymentParams(P2pTransferParams.Builder("410015482994105")
+                        .setAmount(BigDecimal("100.0"))
+                        .create())
+                .setClientId("E21FFF181F50DF09EA1C79783DBA014D69A3F228BD2495FC47EC0A166E91FEC3")
+                .setHost("https://money.yandex.ru")
+                .build();
+            startActivityForResult(intent, 1) }
     }
 }
