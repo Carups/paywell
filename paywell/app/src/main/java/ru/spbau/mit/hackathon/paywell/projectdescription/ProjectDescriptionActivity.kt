@@ -24,7 +24,7 @@ class ProjectDescriptionActivity: AppCompatActivity() {
         projectName.text = paramsMap.getString("name")
         projectOwner.text = paramsMap.getString("owner")
         projectShortDescription.text = paramsMap.getString("short_desc")
-        projectFullDescription.text = "Full description"
+        projectFullDescription.text = paramsMap.getString("full_desc")
 
         val donate1Button: Button = findViewById(R.id.pay1)
         val donate2Button: Button = findViewById(R.id.pay2)

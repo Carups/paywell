@@ -15,6 +15,7 @@ class ProjectViewHolder(projectView: View): RecyclerView.ViewHolder(projectView)
     val projectOwnerText: TextView = projectView.findViewById(R.id.ownerName)
     val projectShortDescription: TextView = projectView.findViewById(R.id.shortProjectDescription)
     val cardView: CardView = projectView as CardView
+    var projectFullDescriptionString: String? = null
 
     init {
         cardView.setOnClickListener { v ->
@@ -28,6 +29,7 @@ class ProjectViewHolder(projectView: View): RecyclerView.ViewHolder(projectView)
         json.put("name", projectNameText.text)
         json.put("owner", projectOwnerText.text)
         json.put("short_desc", projectShortDescription.text)
+        json.put("full_desc", projectFullDescriptionString)
         return json.toString()
     }
 }

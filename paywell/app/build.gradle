@@ -38,3 +38,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
 
 }
+
+dependencies {
+    implementation 'com.yandex.money.api:yandex-money-sdk-android:4.1.0'
+}

@@ -31,5 +31,6 @@ class RecyclerAdapter(projects: List<ProjectInfo>) : RecyclerView.Adapter<Projec
         holder.projectNameText.text = projectInfo.projectName
         holder.projectOwnerText.text = projectInfo.projectOwner
         holder.projectShortDescription.text = projectInfo.projectShortDescription
+        holder.projectFullDescriptionString = projectInfo.projectFullDescription
     }
 }
