@@ -1,5 +1,7 @@
 package ru.spbau.mit.hackathon.paywell.server;
 
+import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,12 +10,16 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 
-public class AppClient {
-    public static String get() throws IOException {
-        //String hostName = args[0];
-        //int portNumber = Integer.parseInt(args[1]);
-        String hostName = "127.0.0.1";
-        int portNumber = 4321;
+public class AppClient extends AsyncTask<String, Void, String> {
+
+    @Override
+    protected String doInBackground(String... strings) {
+        return getJsonFromString();
+    }
+
+    private String getJsonFromString() {
+        final String hostName = "10.0.2.2";
+        final int portNumber = 8080;
         String fromServer = null;
         
         try (
@@ -22,18 +28,9 @@ public class AppClient {
                 BufferedReader in = new BufferedReader(
                         new InputStreamReader(kkSocket.getInputStream()));
         ) {
-
-
-            //while ((fromServer = in.readLine()) != null) {
-            fromServer = in.readLine();
-                //System.out.println("Server: " + fromServer);
-
+            fromServer = in.readLine();//System.out.println("Server: " + fromServer);
             out.println("{\"purpose\" : \"orgList\"}");
-
             fromServer = in.readLine();
-
-
-
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
             System.exit(1);
@@ -43,9 +40,5 @@ public class AppClient {
             System.exit(1);
         }
         return fromServer;
-    }
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(get());
     }
 }
