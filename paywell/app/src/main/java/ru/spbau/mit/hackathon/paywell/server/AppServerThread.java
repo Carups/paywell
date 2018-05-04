@@ -21,7 +21,7 @@ public class AppServerThread extends Thread {
     static {
         Scanner in = null;
         try {
-            in = new Scanner(new File("/home/anton/devdays/paywell1/paywell/paywell/app/src/main/java/ru/spbau/mit/hackathon/paywell/server/projects.json"));
+            in = new Scanner(new File("app/src/main/java/ru/spbau/mit/hackathon/paywell/server/projects.json"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
