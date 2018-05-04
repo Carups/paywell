@@ -56,33 +56,112 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_below="@id/fullProjectDescription"
-            android:orientation="horizontal">
+            android:id="@+id/paymentLayout">
 
-            <Button
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/concreteValuesPayment"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:id="@+id/pay1"
-                android:text="10000"/>
+                android:orientation="horizontal">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:id="@+id/pay2"
-                android:text="50000"/>
+                <Button
+                    android:id="@+id/pay1"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="#0000ff"
+                    android:text="100"
+                    android:textColor="#ffffff" />
 
-            <Button
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/pay2"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="#0000ff"
+                    android:text="500"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/pay3"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="#0000ff"
+                    android:text="1000"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/categoricalValuesPayment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/payRandom"-->
+                <!--style="@style/Widget.AppCompat.Button.Colored"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#ae002e"-->
+                <!--android:text="Рандомная сумма"-->
+                <!--android:textColor="#ffffff" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/payAll"-->
+                <!--style="@style/Widget.AppCompat.Button.Colored"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#ae002e"-->
+                <!--android:text="Отдать все"-->
+                <!--android:textColor="#ffffff" />-->
+        <!--</LinearLayout>-->
+
+            <LinearLayout
+                android:id="@+id/manualValuePayment"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:id="@+id/pay3"
-                android:text="100000"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/manualPaymentLabel"
+                    android:text="Другая сумма"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/manualPaymentText"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:hint="Введите сумму в рублях"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </RelativeLayout>
