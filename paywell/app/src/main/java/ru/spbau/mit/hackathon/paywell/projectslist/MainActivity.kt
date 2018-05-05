@@ -3,6 +3,7 @@ package ru.spbau.mit.hackathon.paywell.projectslist
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import org.json.JSONArray
@@ -18,8 +19,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val swipeRefresh: SwipeRefreshLayout = findViewById(R.id.projectsRefreshLayout)
+        val recyclerView: RecyclerView = findViewById(R.id.projectsRecyclerList)
+
+        swipeRefresh.setOnRefreshListener {
+            fillProjectsToRecyclerView(recyclerView)
+        }
+
+        fillProjectsToRecyclerView(recyclerView)
+    }
+
+    private fun fillProjectsToRecyclerView(recyclerView: RecyclerView) {
         try {
-            val recyclerView: RecyclerView = findViewById(R.id.projectsRecyclerList)
             val llm = LinearLayoutManager(this)
             llm.orientation = LinearLayoutManager.VERTICAL
             recyclerView.layoutManager = llm
