@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PayWell</string>
     <string name="projects_saved_file">projects.txt</string>
+    <string name="users_credentials_file">creds.txt</string>
     <string name="read_from_server_err_code">-1</string>
 </resources>
