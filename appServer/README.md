@@ -18,5 +18,6 @@ mvn exec:java -Dexec.mainClass=ru.spbau.mit.hackathon.paywell.server.AppServer
 ./generate_keys.sh
 ```
 
+Когда спрашиваются подтверждения нужно ответить ```yes``` .
 Получатся файлы ```serverKeyStore.jks``` и ```PublicKeyHolder.java```.
 Файл ```PublicKeyHolder.java``` содержит открытый ключ для клиента. Его нужно поместить в проект клиента вместо одноимённого файла.
