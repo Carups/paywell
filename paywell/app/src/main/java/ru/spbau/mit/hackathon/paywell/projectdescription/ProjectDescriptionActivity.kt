@@ -63,19 +63,19 @@ class ProjectDescriptionActivity: AppCompatActivity() {
                 .setHost("https://money.yandex.ru")
                 .build();*/
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://money.yandex.ru/to"
-                    + "/410015482994105"
+                    + "/410015482994105/"
                     + "${donate1Button.text}"))
             startActivityForResult(intent, 1)
             }
         donate2Button.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://money.yandex.ru/to"
-                    + "/410015482994105"
+                    + "/410015482994105/"
                     + "${donate1Button.text}"))
             startActivityForResult(intent, 1)
         }
         donate3Button.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://money.yandex.ru/to"
-                    + "/410015482994105"
+                    + "/410015482994105/"
                     + "${donate1Button.text}"))
             startActivityForResult(intent, 1) }
     }
